@@ -10,31 +10,40 @@
     <main class="main">
         <div class="container">
             <label class="label">Ширина(в сантиметри)</label>
-            <input class="input" id="a">
+            <input class="input" id="a" type="number">
 
             <label class="label">Дебелина(в сантиметри)</label>
-            <input class="input" id="b">
+            <input class="input" id="b" type="number">
 
             <label class="label">Дължина(в метри)</label>
-            <input class="input" id="c">
+            <input class="input" id="c" type="number">
             
             <label class="label">Бройка</label>
-            <input class="input" id="amount"> 
+            <input class="input" id="amount" type="number"> 
 
             <label class="label">Цена за кубик(в лева):</label>
-            <input class="input" id="price"> 
+            <input class="input" id="price" type="number"> 
             <div>
                 <label for="includeDDS">Включи ДДС</label>
                 <input type="checkbox" id="includeDDS">
             </div>
 
             <button class="btn" id="submit">Пресметни</button>
+            <button class="btn" id="sum" onclick="summarizeM3(sumM3)">Сумирай кубатура</button>
+            <button class="btn" id="sumPrice" onclick="summarizePrice(sumPrice)">Сумирай Цена</button>
 
             <h3 id="result">Кубатура:</h3>
             <h3 id="priceElement"></h3>
+
+            <h3 id="sumM3display"></h3>
+            <h3 id="sumPricedisplay"></h3>
         </div>
 
-        <script src="index.js"></script>
+        <div class="entries">
+        </div>
+
     </main>
+
+    <script src="index.js"></script>
 </body>
 </html>
