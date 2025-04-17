@@ -71,6 +71,7 @@ document.getElementById("submit").onclick = function () {
                                                 <p>Ширина: ${a * 100}cm;</p>
                                                 <p>Височина: ${b * 100}cm;</p>
                                                 <p>Дължина: ${c}m;</p>
+                                                <p>Бройка: ${amount}</p>
                                                 <p>Кубатура: ${m3};</p>
                                                 <p>Цена: ${price}</p>
                                             </div>
