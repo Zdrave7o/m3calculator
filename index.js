@@ -95,6 +95,7 @@ function summarizePrice(sumPrice){
 
     document.querySelector("#sumPricedisplay").textContent = `Обща цена: ${sum.toFixed(2)}`;
 }
+let storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
 
 function addToDaily(m3, price) {
     const today = new Date().toISOString().split('T')[0];
@@ -105,18 +106,27 @@ function addToDaily(m3, price) {
     };
     
 
-    let storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
     storedEntries.push(dailyEntry);
     localStorage.setItem("entries", JSON.stringify(storedEntries));
 
-    displayDailyEntries(storedEntries);
 }
 
 function displayDailyEntries(dailyEntries){
     dailyEntries = JSON.parse(localStorage.getItem("entries")) || [];
+    let entriesDisplay = document.querySelector(".all-entries");
+    entriesDisplay.innerHTML = "";
     dailyEntries.forEach(entry => {
-        console.log(`Дата: ${entry.date}, Кубатура: ${entry.m3} м3, Цена: ${entry.price} лв.`);
+        entriesDisplay.innerHTML += `<div class="entry">
+                                            <div class="items-display">
+                                                <p>Дата: ${entry.date}</p>
+                                                <p>Кубатура: ${entry.m3} м3</p>
+                                                <p>Цена: ${entry.price} лв.</p>
+                                            </div>
+                                        </div>`;
     });
+
+    document.querySelector(".all-entries-bg").style.display = "flex";
+    document.querySelector(".main").style.display = "none";
 }
 
 //debbuging purpose

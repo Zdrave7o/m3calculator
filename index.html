@@ -31,6 +31,7 @@
             <button class="btn" id="submit">Пресметни</button>
             <button class="btn" id="sum" onclick="summarizeM3(sumM3)">Сумирай кубатура</button>
             <button class="btn" id="sumPrice" onclick="summarizePrice(sumPrice)">Сумирай Цена</button>
+            <button class="btn" onclick="displayDailyEntries(storedEntries)">Покажи записи</button>
 
             <h3 id="result">Кубатура:</h3>
             <h3 id="priceElement"></h3>
@@ -41,8 +42,14 @@
 
         <div class="entries">
         </div>
-
     </main>
+
+    <div class="all-entries-bg" style="display: none;">
+            <div class="all-entries">
+            </div>
+
+            <button class="close" onclick="document.querySelector('.all-entries-bg').style.display = 'none'; document.querySelector('.main').style.display = 'flex';">X</button>
+    </div>
 
     <script src="index.js"></script>
 </body>
