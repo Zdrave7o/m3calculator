@@ -115,14 +115,17 @@ function displayDailyEntries(dailyEntries){
     dailyEntries = JSON.parse(localStorage.getItem("entries")) || [];
     let entriesDisplay = document.querySelector(".all-entries");
     entriesDisplay.innerHTML = "";
+    let index = 0;
     dailyEntries.forEach(entry => {
         entriesDisplay.innerHTML += `<div class="entry">
                                             <div class="items-display">
                                                 <p>Дата: ${entry.date}</p>
                                                 <p>Кубатура: ${entry.m3} м3</p>
                                                 <p>Цена: ${entry.price} лв.</p>
+                                                <p onclick="removeEntry(${index})" style="cursor: pointer;">Премахни</p>
                                             </div>
                                         </div>`;
+        index++;
     });
 
     document.querySelector(".all-entries-bg").style.display = "flex";
@@ -134,4 +137,10 @@ function clearEntries() {
     localStorage.removeItem("entries");
 }
 
+function removeEntry(index) {
+    storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
+    storedEntries.splice(index, 1);
+    localStorage.setItem("entries", JSON.stringify(storedEntries));
+    displayDailyEntries(storedEntries);
+}
 
